@@ -28,13 +28,13 @@ then
 	# sunrise:
 	echo "🌅`sunwait list 1 rise angle $SUN_ANGLE $COORDINATES`"
 
-	if [[ `sunwait poll exit angle $SUN_ANGLE $COORDINATES` -eq "DAY" ]]
-	then # DAY
-		# countdown till sunset ⭳ :
-		date -u -d @$(($(date -d "`sunwait list 1 set 	angle $SUN_ANGLE $COORDINATES`" '+%s') - $(date -d "now" '+%s'))) '+🌇%-Hh%M'
+	if [[ "$(( `sunwait poll angle $SUN_ANGLE $COORDINATES`))" == "DAY" ]]
+	then # DAY:
+		# countdown till sunset ⭳🌇:
+		date -u -d @$(($(date -d "`sunwait list 1 set 	angle $SUN_ANGLE $COORDINATES`" '+%s') - $(date -d "now" '+%s'))) '+⇩%-Hh%M'
 	else # NIGHT:
-		# countdown till sunrise ⭱:
-		date -u -d @$(($(date -d "`sunwait list 1 rise 	angle $SUN_ANGLE $COORDINATES`" '+%s') - $(date -d "now" '+%s'))) '+🌅%-Hh%M'
+		# countdown till sunrise ⭱🌅:
+		date -u -d @$(($(date -d "`sunwait list 1 rise 	angle $SUN_ANGLE $COORDINATES`" '+%s') - $(date -d "now" '+%s'))) '+⇧%-Hh%M'
 	fi
 
 	# sunset:
