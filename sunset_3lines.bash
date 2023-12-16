@@ -67,8 +67,7 @@ else # alcom sunset (no more sunny)
 	# sunrise at:
 	echo "🌅`sunwait list 1 rise angle -3.33 $COORDINATES`"
 
-	# day length civil:
-	echo "⏳`sunwait report 1 $COORDINATES | grep Duration | sed 's/ Duration ...    Day length: //' | sed 's/ hours//' | sed 's/:/h/'`"
+	
 fi
 
 
@@ -132,5 +131,6 @@ fi
 #~ fi
 
 
-
+# day length civil:
+# echo "⏳`sunwait report 1 $COORDINATES | grep Duration | sed 's/ Duration ...    Day length: //' | sed 's/ hours//' | sed 's/:/h/'`"
 
